@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast Checker</title>
+</head>
+<body>
+    <h1>Weather Forecast Checker</h1>
+    
+    <form method="POST" action="/">
+        <label for="city">Enter city name:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Check Weather</button>
+    </form>
+
+    {% if weather_info %}
+        <h2>Weather in {{ request.form['city'] }}:</h2>
+        <p>Description: {{ weather_info['description'] }}</p>
+        <p>Temperature: {{ weather_info['temperature'] }}°C</p>
+        <p>Humidity: {{ weather_info['humidity'] }}%</p>
+        <p>Wind Speed: {{ weather_info['wind_speed'] }} m/s</p>
+    {% endif %}
+</body>
+</html>
